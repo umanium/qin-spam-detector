@@ -65,5 +65,18 @@ namespace SpamDetectorTest
             string[] expected = new string[] { "Hello darkness", "darkness my", "my old", "old friend" };
             CollectionAssert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void TestTokenizerStopWords()
+        {
+            Console.WriteLine("It will strip stop words from tokenized words");
+            Tokenizer tokenizer = new Tokenizer();
+            string[] tokenized = new string[] { "Hello", "the", "prisoner", "of", "Azkaban" };
+            string[] stopWords = new string[] { "the", "and", "of" };
+            string[] result = tokenizer.removeStopWords(tokenized, stopWords);
+
+            string[] expected = new string[] { "Hello", "prisoner", "Azkaban" };
+            CollectionAssert.AreEqual(expected, result);
+        }
     }
 }

@@ -8,8 +8,9 @@ namespace SpamDetectorTest
     public class CleanerTest
     {
         [TestMethod]
-        public void TestCleanerNormalizeAccentedWords()
+        public void TestCleanerNormalizeAccentedChars()
         {
+            Console.WriteLine("It will convert accented characters into normal characters");
             Cleaner cleaner = new Cleaner();
             string accented = "das Mädchen küssen üben dünn die Prüfung für hálo";
 
@@ -20,6 +21,7 @@ namespace SpamDetectorTest
         [TestMethod]
         public void TestCleanerStripNonAscii()
         {
+            Console.WriteLine("It will strip non-ASCII characters");
             Cleaner cleaner = new Cleaner();
             string nonAscii = "søme string";
 

@@ -37,5 +37,19 @@ namespace SpamDetector.Services
             }
             return bigram;
         }
+
+        public string[] removeStopWords(string[] wordList, string[] stopWords)
+        {
+            List<string> result = new List<string>();
+            for(int i = 0; i < wordList.Count(); i++)
+            {
+                if(!Array.Exists(stopWords, word => word == wordList[i]))
+                {
+                    result.Add(wordList[i]);
+                }
+            }
+
+            return result.ToArray();
+        }
     }
 }
