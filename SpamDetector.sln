@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpamDetector", "SpamDetector\SpamDetector.csproj", "{D48307CB-DB47-4FA6-A366-B8E32D49B580}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpamDetectorTest", "SpamDetectorTest\SpamDetectorTest.csproj", "{4B427ED4-6145-4BB3-B6B9-C6C38B901514}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D48307CB-DB47-4FA6-A366-B8E32D49B580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D48307CB-DB47-4FA6-A366-B8E32D49B580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D48307CB-DB47-4FA6-A366-B8E32D49B580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D48307CB-DB47-4FA6-A366-B8E32D49B580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B427ED4-6145-4BB3-B6B9-C6C38B901514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B427ED4-6145-4BB3-B6B9-C6C38B901514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B427ED4-6145-4BB3-B6B9-C6C38B901514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B427ED4-6145-4BB3-B6B9-C6C38B901514}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
