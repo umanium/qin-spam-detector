@@ -60,10 +60,51 @@ namespace SpamDetectorTest
             Console.WriteLine("It will tokenize strings into bigrams");
             Tokenizer tokenizer = new Tokenizer();
             string[] result = new string[] { };
-            result = tokenizer.tokenizeBigram("Hello darkness my old friend");
+            result = tokenizer.tokenizeNgram("Hello darkness my old friend", 2);
 
-            string[] expected = new string[] { "Hello darkness", "darkness my", "my old", "old friend" };
-            CollectionAssert.AreEqual(expected, result);
+            string[] expected = new string[] { "Hello darkness", "Hello", "darkness", "darkness my", "my", "my old", "old", "old friend", "friend"};
+            CollectionAssert.AreEquivalent(expected, result);
+        }
+
+        [TestMethod]
+        public void TestTokenizerTrigram()
+        {
+            Console.WriteLine("It will tokenize strings into trigrams");
+            Tokenizer tokenizer = new Tokenizer();
+            string[] result = new string[] { };
+            result = tokenizer.tokenizeNgram("Hello darkness my old friend", 3);
+
+            string[] expected = new string[] { "Hello darkness", "Hello", "darkness", "darkness my", "my", "my old", "old", "old friend", "friend", "Hello darkness my", "darkness my old", "my old friend" };
+            CollectionAssert.AreEquivalent(expected, result);
+        }
+
+        [TestMethod]
+        public void TestTokenizerSbph2()
+        {
+            Console.WriteLine("It will tokenize strings into sbph tokens with n=2");
+            Tokenizer tokenizer = new Tokenizer();
+            string[] result = new string[] { };
+            result = tokenizer.tokenizeSbph("Hello darkness my old friend", 2);
+
+            string[] expected = new string[] { "Hello darkness", "Hello", "darkness", "darkness my", "my", "my old", "old", "old friend", "friend" };
+            CollectionAssert.AreEquivalent(expected, result);
+        }
+
+        [TestMethod]
+        public void TestTokenizerSbph3()
+        {
+            Console.WriteLine("It will tokenize strings into sbph tokens with n=3");
+            Tokenizer tokenizer = new Tokenizer();
+            string[] result = new string[] { };
+            result = tokenizer.tokenizeSbph("Hello darkness my old friend", 3);
+
+            string[] expected = new string[] {
+                "Hello darkness", "Hello", "darkness", "darkness my",
+                "my", "my old", "old", "old friend", "friend",
+                "Hello my", "darkness old", "my friend", "Hello darkness my",
+                "darkness my old", "my old friend"
+            };
+            CollectionAssert.AreEquivalent(expected, result);
         }
 
         [TestMethod]

@@ -27,15 +27,34 @@ namespace SpamDetector.Services
             return sentence.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
         }
 
-        public string[] tokenizeBigram(string sentence)
+        public string[] tokenizeNgram(string sentence, int n)
         {
             string[] unigram = this.tokenize(sentence);
-            string[] bigram = new string[unigram.Count() - 1];
-            for(int i = 0; i < unigram.Count() - 1; i++)
+            List<string> ngramList = new List<string>();
+            for(int i = 0; i < unigram.Count(); i++)
             {
-                bigram[i] = unigram[i] + " " + unigram[i + 1];
+                ngramList.Add(unigram[i]);
+                for(int j = 1; j < n; j++)
+                {
+                    if(i + j < unigram.Count())
+                    {
+                        string newgram = unigram[i];
+                        for(int k = 0; k < j; k++)
+                        {
+                            newgram += " " + unigram[i + (k + 1)];
+                        }
+                        ngramList.Add(newgram);
+                    }
+                }
             }
-            return bigram;
+            return ngramList.ToArray();
+        }
+
+        public string[] tokenizeSbph(string sentence, int n)
+        {
+            List<string> tokenList = new List<string>();
+
+            return tokenList.ToArray();
         }
 
         public string[] removeStopWords(string[] wordList, string[] stopWords)
